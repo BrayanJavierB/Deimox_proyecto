@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:deimoxapp/models/exercise.dart';
 import 'package:deimoxapp/widgets/exercise_timer.dart';
 
-//import 'package:flutter/material.dart';
-
 class TimerScreen extends StatefulWidget {
   final List<Exercise> exercises;
   final int exerciseIndex;
 
-  const TimerScreen({super.key, required this.exercises, required this.exerciseIndex});
+  const TimerScreen({
+    Key? key,
+    required this.exercises,
+    required this.exerciseIndex,
+  }) : super(key: key);
 
   @override
-  State <TimerScreen> createState() => _TimerScreenState();
+  State<TimerScreen> createState() => _TimerScreenState();
 }
 
 class _TimerScreenState extends State<TimerScreen> {
@@ -19,6 +21,7 @@ class _TimerScreenState extends State<TimerScreen> {
   late Exercise _currentExercise;
   late List<int> _originalDurations;
   late ExerciseTimer _exerciseTimer;
+  late ScrollController _scrollController;
 
   @override
   void initState() {
@@ -33,6 +36,7 @@ class _TimerScreenState extends State<TimerScreen> {
       onPrevious: _goToPreviousExercise,
       autoRestart: true,
     );
+    _scrollController = ScrollController();
   }
 
   void _goToNextExercise() {
@@ -66,6 +70,22 @@ class _TimerScreenState extends State<TimerScreen> {
     );
   }
 
+  void _scrollToTop() {
+    _scrollController.animateTo(
+      0.0,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void _scrollToBottom() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,44 +93,46 @@ class _TimerScreenState extends State<TimerScreen> {
         title: Text(
           'Pausa Activa: ${_currentExercise.name}',
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          
         ),
         centerTitle: true,
-        backgroundColor: Colors.green, // Color del fondo del AppBar
-        elevation: 0, // Sin sombra debajo del AppBar
+        backgroundColor: Colors.green,
+        elevation: 0,
       ),
-      body: Container(
-        padding: const EdgeInsets.all(20), // Espaciado interno
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.green.shade200, Colors.green.shade400],
-          ), // Gradiente de color de fondo
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              _currentExercise.imagePath, // Ruta de la imagen
-              width: 200,
-              height: 200,
-              fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        controller: _scrollController,
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.green.shade200, Colors.green.shade400],
             ),
-            const SizedBox(height: 20),
-            Text(
-              _currentExercise.description,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                _currentExercise.imagePath,
+                width: 300,
+                height: 300,
+                fit: BoxFit.cover,
               ),
-            ), 
-            const SizedBox(height: 20),
-            _exerciseTimer,
-          ],
+              const SizedBox(height: 20),
+              Text(
+                _currentExercise.description,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              _exerciseTimer,
+            ],
+          ),
         ),
       ),
     );

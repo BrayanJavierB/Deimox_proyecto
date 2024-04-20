@@ -8,27 +8,31 @@ class HomeScreen3 extends StatefulWidget {
   const HomeScreen3({super.key});
 
   @override
-  State <HomeScreen3> createState() => _HomeScreenState();
+  State<HomeScreen3> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen3> {
   final List<Exercise> exercises = [
     Exercise(
-        name: 'Flexiones de pecho',
-        description: 'Descripción...',
-        imagePath: "assets/images/xd.png"),
+        name: 'Flexiones',
+        description:
+            ' Comienza por colocarte boca abajo en el suelo, con las manos ligeramente más anchas que los hombros y los dedos apuntando hacia adelante o ligeramente hacia afuera. ',
+        imagePath: "assets/images/flexiones.png"),
     Exercise(
-        name: 'Sentadilla',
-        description: 'Descripción...',
-        imagePath: "assets/images/xd.png"),
+        name: 'Plancha abdominal',
+        description:
+            'Para ejecutar este ejercicio debes comenzar por tumbarte boca abajo. Es importante que las caderas no toquen el suelo y que tus piernas permanezcan estiradas. Apoya sobre los antebrazos el tren superior.',
+        imagePath: "assets/images/plancha2.png"),
     Exercise(
-        name: 'Skipping',
-        description: 'Trotar sin moverse',
-        imagePath: "assets/images/xd.png"),
+        name: 'Estocada hacia adelante',
+        description:
+            'Comienza de pie con los pies separados a la anchura de los hombros y los brazos a los lados del cuerpo.Baja lentamente el cuerpo hacia el suelo doblando ambas rodillas, manteniendo la espalda recta y el torso erguido. Desciende hasta que la rodilla de la pierna trasera casi toque el suelo.',
+        imagePath: "assets/images/estocada.png"),
     Exercise(
         name: 'Abdominales',
-        description: 'Descripción...',
-        imagePath: "assets/images/xd.png"),
+        description:
+            'Acuéstate boca arriba en una esterilla de ejercicio o en una superficie firme. Flexiona las rodillas y coloca los pies planos en el suelo, separados aproximadamente a la anchura de las caderas. Los brazos pueden estar cruzados sobre el pecho, detrás de la cabeza o extendidos a lo largo del cuerpo.',
+        imagePath: "assets/images/abdominal.png"),
     // Agregar más ejercicios según sea necesario
   ];
 

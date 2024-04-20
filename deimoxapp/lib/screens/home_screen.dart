@@ -8,27 +8,31 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State <HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<Exercise> exercises = [
     Exercise(
-        name: 'Estiramiento de brazos',
-        description: 'Descripción...',
-        imagePath: "assets/images/xd.png"),
+        name: 'Sentadillas',
+        description:
+            "De pie, separe sus pies a la anchura de los hombros y ponga los dedos de los pies ligeramente hacia fuera. Sus manos deben estar a cada lado de la caderas. Mantenga la espalda bién posicionada.",
+        imagePath: "assets/images/sentadilla.png"),
     Exercise(
-        name: 'Estiramiento de piernas',
-        description: 'Descripción...',
-        imagePath: "assets/images/xd.png"),
+        name: 'Estiramiento para trapecio superior',
+        description:
+            'Párese derecho con los pies a la anchura de los hombros. Tome el lado izquierdo de su cabeza con la mano derecha. Mantenga la columna vertebral recta.',
+        imagePath: "assets/images/estirar-trapecio.png"),
     Exercise(
-        name: 'Respiración profunda',
-        description: 'Descripción...',
-        imagePath: "assets/images/xd.png"),
+        name: 'Estiramiento paravertebrales y dorsales',
+        description:
+            'Colóquese de pie con los pies a la anchura de los hombros. Coloque sus manos justo encima de usted con los dedos entrelazados. Los brazos deben estar rectos y las palmas deben apuntar hacia el techo.',
+        imagePath: "assets/images/estirar-vertebras2.png"),
     Exercise(
-        name: 'Girar el cuello',
-        description: 'Descripción...',
-        imagePath: "assets/images/xd.png"),
+        name: 'Estiramiento de tríceps detrás de la cabeza',
+        description:
+            'Colóquese de pie con los pies a la anchura de los hombros. Coloque su brazo derecho detrás de su cabeza y agárrelo del codo con su mano izquierda.',
+        imagePath: "assets/images/estirar-tricepts.png"),
     // Agregar más ejercicios según sea necesario
   ];
 
