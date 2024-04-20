@@ -1,7 +1,7 @@
-//import 'package:daimox_login/screens/clock_screen.dart';
-//import 'package:daimox_login/screens/inicio.dart';
-//import 'package:daimox_login/screens/profile_screen.dart';
-import 'package:deimoxapp/screens/signin_screen.dart';
+//import 'package:deimoxapp/screens/clock_screen.dart';
+import 'package:deimoxapp/screens/inicio.dart';
+//import 'package:deimoxapp/screens/profile_screen.dart';
+//import 'package:deimoxapp/screens/signin_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -46,9 +46,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignInScreen(),
+      //home: const SignInScreen(),
       //home: const SignUpScreen(),
-      //home: Inicio(),
+      home: const Inicio(),
       //home: ProfileScreen(),
       //home: ClockScreen(),
     );

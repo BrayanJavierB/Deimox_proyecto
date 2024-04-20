@@ -8,7 +8,7 @@ class ClockScreen extends StatefulWidget {
   const ClockScreen({super.key});
 
   @override
-  State <ClockScreen> createState() => _ClockScreenState();
+  State<ClockScreen> createState() => _ClockScreenState();
 }
 
 class _ClockScreenState extends State<ClockScreen> {
@@ -51,7 +51,7 @@ class _ClockScreenState extends State<ClockScreen> {
         AndroidNotificationDetails(
       'alarm_channel',
       'Alarma',
-      
+
       importance: Importance.max,
       priority: Priority.high,
       sound: RawResourceAndroidNotificationSound('alarmaxd'),
@@ -131,11 +131,11 @@ class _ClockScreenState extends State<ClockScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/reloj.png',
-              width: 200,
-              height: 200,
+              'assets/images/alarma.png',
+              width: 350,
+              height: 350,
             ),
-            const SizedBox(height: 20),
+            
             const Text(
               'Hora de la alarma:',
               style: TextStyle(fontSize: 20.0, color: Colors.white),
@@ -144,13 +144,13 @@ class _ClockScreenState extends State<ClockScreen> {
               '${_selectedTime.hour}:${_selectedTime.minute}',
               style: const TextStyle(fontSize: 20.0, color: Colors.white),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             if (_alarmActive)
               Text(
                 'Tiempo restante: ${_remainingTime.inHours}:${(_remainingTime.inMinutes % 60).toString().padLeft(2, '0')}:${(_remainingTime.inSeconds % 60).toString().padLeft(2, '0')}',
                 style: const TextStyle(fontSize: 20.0, color: Colors.white),
               ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -168,7 +168,7 @@ class _ClockScreenState extends State<ClockScreen> {
                   },
                   child: const Text('Seleccionar Hora'),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 10),
                 if (!_alarmActive)
                   ElevatedButton(
                     onPressed: _scheduleAlarm,

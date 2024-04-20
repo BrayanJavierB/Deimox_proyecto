@@ -2,8 +2,7 @@ import 'package:deimoxapp/screens/clock_screen.dart';
 import 'package:deimoxapp/screens/exer_cuerpo.dart';
 import 'package:flutter/material.dart';
 import 'package:deimoxapp/screens/home_screen.dart';
-import 'package:deimoxapp/screens/profile_screen.dart'; // Importa la pantalla que deseas abrir
-import 'package:deimoxapp/screens/signin_screen.dart';
+import 'package:deimoxapp/screens/profile_screen.dart';
 import 'package:deimoxapp/screens/exer_pasivos.dart';
 
 class Inicio extends StatelessWidget {
@@ -30,12 +29,12 @@ class Inicio extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Image.asset('assets/images/logitipo22.png'),
                 Container(
                   height: 650,
-                  width: 325,
+                  width: 350,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 24, 24, 24),
                     borderRadius: BorderRadius.circular(10),
@@ -44,7 +43,7 @@ class Inicio extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       const Text(
                         'Pausas Activas',
@@ -55,7 +54,7 @@ class Inicio extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       const Text(
                         'Menú',
@@ -66,7 +65,7 @@ class Inicio extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,12 +82,12 @@ class Inicio extends StatelessWidget {
                                   );
                                 },
                                 child: _buildIconWithDescription(
-                                  'assets/images/ejercicio.png',
+                                  'assets/images/activas.png',
                                   'Activas',
                                   context,
                                 ),
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 5),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -99,7 +98,7 @@ class Inicio extends StatelessWidget {
                                   );
                                 },
                                 child: _buildIconWithDescription(
-                                  'assets/images/empresario.png',
+                                  'assets/images/cuerpo.png',
                                   'Cuerpo',
                                   context,
                                 ),
@@ -118,24 +117,23 @@ class Inicio extends StatelessWidget {
                                   );
                                 },
                                 child: _buildIconWithDescription(
-                                  'assets/images/triangulo.png',
+                                  'assets/images/pasivas.png',
                                   'Pasivas',
                                   context,
                                 ),
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 5),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ClockScreen(), // Aquí se abre la pantalla de configuración de la alarma
+                                      builder: (context) => const ClockScreen(),
                                     ),
                                   );
                                 },
                                 child: _buildIconWithDescription(
-                                  'assets/images/tiempo.png',
+                                  'assets/images/alarma.png',
                                   'Alarma',
                                   context,
                                 ),
@@ -144,8 +142,7 @@ class Inicio extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20), // Espacio adicional
-                      // Agrega aquí las dos imágenes adicionales
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -159,7 +156,7 @@ class Inicio extends StatelessWidget {
                               );
                             },
                             child: _buildIconWithDescription(
-                              'assets/images/ajuste.png',
+                              'assets/images/perfil.png',
                               'Perfil',
                               context,
                             ),
@@ -169,12 +166,12 @@ class Inicio extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const SignInScreen(),
+                                  builder: (context) => const Inicio(),
                                 ),
                               );
                             },
                             child: _buildIconWithDescription(
-                              'assets/images/cerrar_sesion.png',
+                              'assets/images/exit.png',
                               'Salir',
                               context,
                             ),
@@ -210,8 +207,8 @@ class Inicio extends StatelessWidget {
         children: [
           Image.asset(
             imagePath,
-            width: 100,
-            height: 100,
+            width: 120,
+            height: 120,
           ),
           const SizedBox(height: 2), // Espacio entre la imagen y el texto
           Text(
