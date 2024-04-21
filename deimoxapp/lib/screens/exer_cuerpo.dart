@@ -33,6 +33,31 @@ class _HomeScreenState extends State<HomeScreen3> {
         description:
             'Acuéstate boca arriba en una esterilla de ejercicio o en una superficie firme. Flexiona las rodillas y coloca los pies planos en el suelo, separados aproximadamente a la anchura de las caderas. Los brazos pueden estar cruzados sobre el pecho, detrás de la cabeza o extendidos a lo largo del cuerpo.',
         imagePath: "assets/images/abdominal.png"),
+    Exercise(
+        name: 'Respiración labios fruncidos, posición sentada',
+        description:
+            "Siéntese en una silla y coloque su mano sobre su vientre. Mantenga su cuerpo recto.",
+        imagePath: "assets/images/respiro1.png"),
+    Exercise(
+        name: 'Respiración abdominal-diafragmática, posición sentada',
+        description:
+            "Siéntese en una silla y coloque su mano sobre su vientre. Contraiga el suelo pélvico y el con el mientras mantiene su cuerpo recto.",
+        imagePath: "assets/images/respiro2.png"),
+    Exercise(
+        name: 'Respiración costo-diafragmática, posición sentada',
+        description:
+            "Siéntese en una silla y coloque su mano sobre su vientre. Mantenga su cuerpo recto.",
+        imagePath: "assets/images/respiro3.png"),
+    Exercise(
+        name: 'Expansión costal apertura de brazos, posición sentada',
+        description:
+            "Siéntese en una silla y coloque las manos sobre sus muslos. Contraiga el suelo pélvico y el Core mientras mantiene su cuerpo recto.",
+        imagePath: "assets/images/respiro4.png"),
+    Exercise(
+        name: 'Respiración coordinada con elevación de pierna',
+        description:
+            "Coloque se dé pie al lado de una silla. Ponga una de sus manos en la silla para un mayor equilibrio.",
+        imagePath: "assets/images/respiro5.png"),
     // Agregar más ejercicios según sea necesario
   ];
 

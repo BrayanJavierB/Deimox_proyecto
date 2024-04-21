@@ -14,21 +14,60 @@ class HomeScreen2 extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen2> {
   final List<Exercise> exercises = [
     Exercise(
-        name: 'Yoga de ojos',
-        description: 'cerrar y abrir los ojos',
-        imagePath: "assets/images/yogaojos.png"),
+        name: "Flexion de rodilla de pie con apoyo",
+        description:
+            "Colóquese de pie con los pies anchura de los hombros frente a una silla. Coja la silla con ambas manos. Doble la rodilla derecha moviendo el talón hacia arriba. Vuelva a la posición inicial con un suave movimiento.",
+        imagePath: "assets/images/pasiva1.png"),
     Exercise(
-        name: 'Meditación',
-        description: 'Descripción...',
-        imagePath: "assets/images/yoga.png"),
+        name: "Flexion plantar y dorsiflexion",
+        description:
+            "Siéntese en una silla alta, sus pies no deben tocar el suelo. Moviendo solo el tobillo, levante la punta del pie derecho tanto como pueda.",
+        imagePath: "assets/images/pasiva2.png"),
     Exercise(
-        name: 'Cerrar los ojos',
-        description: 'Descripción...',
-        imagePath: "assets/images/closeojos.png"),
+        name: "Abducción de cadera con apoyo en silla",
+        description:
+            "Colóquese de pie con los pies anchura de los hombros frente a una silla. Coja la silla con ambas manos. Separe su pie derecho del otro tanto como pueda. Exhale durante el movimiento.",
+        imagePath: "assets/images/pasiva3.png"),
     Exercise(
-        name: 'Musica relajante',
-        description: 'Descripción...',
-        imagePath: "assets/images/musicrelax.png"),
+        name: "Eversión e inversión",
+        description:
+            "Mueva la planta del pie derecho hacia arriba por su lado derecho y después por su lado izquierdo. Repita el movimiento la cantidad especificada de repeticiones y luego repita con el otro pie.",
+        imagePath: "assets/images/pasiva4.png"),
+    Exercise(
+        name: "Flexión de rodilla auto asistida",
+        description:
+            "Con la ayuda de la pierna derecha, doble la rodilla izquierda tanto como pueda. Repita el movimiento la cantidad especificada de repeticiones, luego cambie de lado y repita el ejercicio.",
+        imagePath: "assets/images/pasiva5.png"),
+    Exercise(
+        name: "Extensión de pierna sentado",
+        description:
+            "Extienda completamente la rodilla izquierda mientras exhala. Vuelva a la posición inicial con un suave movimiento mientras inhala y alterne con la otra pierna.",
+        imagePath: "assets/images/pasiva6.png"),
+    Exercise(
+        name: "Hiperextensión de rodilla apoyada",
+        description:
+            "Siéntese en una silla y coloque otra silla frente a usted. Su trasero debe estar en contacto con el respaldo de la silla. Extienda completamente la rodilla derecha y coloque el talón en la silla frente a usted.",
+        imagePath: "assets/images/pasiva7.png"),
+    Exercise(
+        name: "Isométrico cuádriceps sentado",
+        description:
+            "Empuje el suelo principalmente con los talones. Mantenga la tensión durante el tiempo requerido. Relaje los músculos y repita el ejercicio.",
+        imagePath: "assets/images/pasiva8.png"),
+    Exercise(
+        name: "Elevación de talones de pie apoyado",
+        description:
+            "Usando las pantorrillas, levante los talones lo más alto que pueda mientras exhala. Asegúrese de que sólo mueve los tobillos. Vuelva a la posición inicial con un suave movimiento mientras inhala. Mantenga la columna vertebral recta.",
+        imagePath: "assets/images/pasiva9.png"),
+    Exercise(
+        name: "Extensión de pierna sentado",
+        description:
+            "Extienda completamente la rodilla izquierda mientras exhala. Vuelva a la posición inicial con un suave movimiento mientras inhala y alterne con la otra pierna.",
+        imagePath: "assets/images/pasiva11.png"),
+    Exercise(
+        name: "Estiramiento femoral sentado",
+        description:
+            "siéntate en el suelo con las piernas extendidas y te inclinas hacia adelante desde las caderas, manteniendo la espalda recta, para estirar los músculos del muslo.",
+        imagePath: "assets/images/pasiva10.png"),
     // Agregar más ejercicios según sea necesario
   ];
 

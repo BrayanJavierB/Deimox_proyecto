@@ -91,13 +91,15 @@ class _TimerScreenState extends State<TimerScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Pausa Activa: ${_currentExercise.name}',
+          '${_currentExercise.name}',
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         centerTitle: true,
-        backgroundColor: Colors.green,
+        backgroundColor:
+            Colors.green, // Mantenemos el fondo blanco para el encabezado
         elevation: 0,
       ),
+      backgroundColor: Colors.green.shade400, // Fondo verde más claro
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Container(
@@ -107,7 +109,10 @@ class _TimerScreenState extends State<TimerScreen> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.green.shade200, Colors.green.shade400],
+              colors: [
+                Colors.green.shade200,
+                Colors.green.shade400
+              ], // Degradado verde
             ),
           ),
           child: Column(
@@ -115,14 +120,14 @@ class _TimerScreenState extends State<TimerScreen> {
             children: [
               Image.asset(
                 _currentExercise.imagePath,
-                width: 300,
-                height: 300,
-                fit: BoxFit.cover,
+                width: 420,
+                height: 320,
+                fit: BoxFit.contain,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Text(
                 _currentExercise.description,
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.justify,
                 style: const TextStyle(
                   fontSize: 15,
                   color: Colors.black,
