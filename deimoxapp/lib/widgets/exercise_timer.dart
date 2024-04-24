@@ -7,6 +7,7 @@ class ExerciseTimer extends StatefulWidget {
   final VoidCallback onNext;
   final VoidCallback onPrevious;
   final bool autoRestart;
+  final bool isRunning;
 
   const ExerciseTimer({
     required this.duration,
@@ -14,6 +15,7 @@ class ExerciseTimer extends StatefulWidget {
     required this.onNext,
     required this.onPrevious,
     this.autoRestart = false, // Valor por defecto es false
+    this.isRunning = true,
     super.key,
   });
 
@@ -30,8 +32,10 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
   void initState() {
     super.initState();
     _seconds = widget.duration;
-    _isRunning = true;
-    _startTimer();
+    _isRunning = widget.isRunning; // Establece el estado inicial
+    if (_isRunning) {
+      _startTimer();
+    }
   }
 
   void _startTimer() {
@@ -54,13 +58,18 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
   void _pauseOrResume() {
     setState(() {
       _isRunning = !_isRunning;
+      if (_isRunning) {
+        _startTimer(); // Inicia el temporizador si se reanuda
+      } else {
+        _timer.cancel(); // Detiene el temporizador si se pausa
+      }
     });
   }
 
   void _reset() {
     setState(() {
       _seconds = widget.duration;
-      _isRunning = true;
+      _isRunning = false; // Establece el temporizador en pausa al reiniciar
     });
   }
 
@@ -74,7 +83,6 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
     _timer.cancel();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:deimoxapp/reusable_widgets/reusable_widget.dart';
-import 'package:deimoxapp/screens/home_screen.dart';
+import 'package:deimoxapp/screens/inicio.dart';
 import 'package:deimoxapp/utilis/color_utils.dart';
 import 'package:deimoxapp/screens/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,7 +10,7 @@ class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
   @override
-  State <SignUpScreen> createState() => _SignUpScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
@@ -167,8 +167,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 25, 165, 69),
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 50, vertical: 15),
                       ),
                       child: const Text(
                         'Registrarse',
@@ -197,7 +197,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       // Navega a la pantalla de inicio después del registro exitoso
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) => const Inicio()),
       );
     }).catchError((error) {
       showDialog(

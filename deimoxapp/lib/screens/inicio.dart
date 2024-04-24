@@ -1,6 +1,7 @@
 import 'package:deimoxapp/screens/clock_screen.dart';
 import 'package:deimoxapp/screens/exer_cuerpo.dart';
 import 'package:flutter/material.dart';
+import 'package:deimoxapp/screens/signin_screen.dart';
 import 'package:deimoxapp/screens/home_screen.dart';
 import 'package:deimoxapp/screens/profile_screen.dart';
 import 'package:deimoxapp/screens/exer_pasivos.dart';
@@ -31,12 +32,12 @@ class Inicio extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Image.asset('assets/images/logitipo22.png'),
+                Image.asset('assets/images/logotipo.png'),
                 Container(
                   height: 650,
                   width: 350,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 24, 24, 24),
+                    color: Color.fromARGB(255, 35, 35, 35),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -46,7 +47,7 @@ class Inicio extends StatelessWidget {
                         height: 5,
                       ),
                       const Text(
-                        'Pausas Activas',
+                        'Menú',
                         style: TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class Inicio extends StatelessWidget {
                         height: 5,
                       ),
                       const Text(
-                        'Menú',
+                        'Ejercicios de Pausas',
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
@@ -166,7 +167,7 @@ class Inicio extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Inicio(),
+                                  builder: (context) => const SignInScreen(),
                                 ),
                               );
                             },

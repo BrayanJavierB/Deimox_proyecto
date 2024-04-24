@@ -22,19 +22,22 @@ class _TimerScreenState extends State<TimerScreen> {
   late List<int> _originalDurations;
   late ExerciseTimer _exerciseTimer;
   late ScrollController _scrollController;
+  late bool _isTimerRunning;
 
   @override
   void initState() {
     super.initState();
     _currentExerciseIndex = widget.exerciseIndex;
     _currentExercise = widget.exercises[_currentExerciseIndex];
-    _originalDurations = List.filled(widget.exercises.length, 30);
+    _originalDurations = List.filled(widget.exercises.length, 60);
+    _isTimerRunning = false; // Inicialmente, el temporizador está pausado
     _exerciseTimer = ExerciseTimer(
       duration: _originalDurations[_currentExerciseIndex],
       onTimerEnd: _goToNextExercise,
       onNext: _goToNextExercise,
       onPrevious: _goToPreviousExercise,
       autoRestart: true,
+      isRunning: _isTimerRunning, // Pasamos el estado al ExerciseTimer
     );
     _scrollController = ScrollController();
   }
@@ -60,6 +63,7 @@ class _TimerScreenState extends State<TimerScreen> {
   }
 
   void _resetTimer(int duration) {
+    _isTimerRunning = false; // Al cambiar de pausa, se pausa el temporizador
     _exerciseTimer = ExerciseTimer(
       key: UniqueKey(),
       duration: duration,
@@ -67,6 +71,7 @@ class _TimerScreenState extends State<TimerScreen> {
       onNext: _goToNextExercise,
       onPrevious: _goToPreviousExercise,
       autoRestart: true,
+      isRunning: _isTimerRunning, // Pasamos el estado al ExerciseTimer
     );
   }
 
@@ -95,8 +100,7 @@ class _TimerScreenState extends State<TimerScreen> {
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         centerTitle: true,
-        backgroundColor:
-            Colors.green, // Mantenemos el fondo blanco para el encabezado
+        backgroundColor: Colors.green,
         elevation: 0,
       ),
       backgroundColor: Colors.green.shade400, // Fondo verde más claro
@@ -118,6 +122,7 @@ class _TimerScreenState extends State<TimerScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 40),
               Image.asset(
                 _currentExercise.imagePath,
                 width: 420,
@@ -136,6 +141,7 @@ class _TimerScreenState extends State<TimerScreen> {
               ),
               const SizedBox(height: 20),
               _exerciseTimer,
+              const SizedBox(height: 30),
             ],
           ),
         ),
