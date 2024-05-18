@@ -3,12 +3,11 @@ import 'package:deimoxapp/screens/exer_cuerpo.dart';
 import 'package:flutter/material.dart';
 import 'package:deimoxapp/screens/signin_screen.dart';
 import 'package:deimoxapp/screens/home_screen.dart';
-import 'package:deimoxapp/screens/profile_screen.dart';
 import 'package:deimoxapp/screens/exer_pasivos.dart';
+import 'package:deimoxapp/screens/profile_screen.dart';
 
 class Inicio extends StatelessWidget {
   const Inicio({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +23,8 @@ class Inicio extends StatelessWidget {
             ],
           ),
         ),
-        child: SingleChildScrollView(
-          child: Center(
+        child: Center(
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -34,10 +33,9 @@ class Inicio extends StatelessWidget {
                 ),
                 Image.asset('assets/images/logotipo.png'),
                 Container(
-                  height: 650,
                   width: 350,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 35, 35, 35),
+                    color: const Color.fromARGB(255, 35, 35, 35),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -179,9 +177,14 @@ class Inicio extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(
+                          height:
+                              10), // Añadir un espacio al final para evitar el recorte del último elemento
                     ],
                   ),
                 ),
+                const SizedBox(
+                    height: 10), // Espacio adicional al final de la columna
               ],
             ),
           ),

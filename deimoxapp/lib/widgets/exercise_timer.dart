@@ -15,18 +15,18 @@ class ExerciseTimer extends StatefulWidget {
     required this.onNext,
     required this.onPrevious,
     this.autoRestart = false, // Valor por defecto es false
-    this.isRunning = true,
+    this.isRunning = false, // Valor por defecto es false
     super.key,
   });
 
   @override
-  State <ExerciseTimer> createState() => _ExerciseTimerState();
+  State<ExerciseTimer> createState() => _ExerciseTimerState();
 }
 
 class _ExerciseTimerState extends State<ExerciseTimer> {
   late int _seconds;
   late bool _isRunning;
-  late Timer _timer;
+  Timer? _timer; // Inicializa _timer como nullable
 
   @override
   void initState() {
@@ -39,6 +39,8 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
   }
 
   void _startTimer() {
+    _timer
+        ?.cancel(); // Cancela cualquier temporizador existente antes de iniciar uno nuevo
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_seconds == 0) {
         timer.cancel();
@@ -61,7 +63,7 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
       if (_isRunning) {
         _startTimer(); // Inicia el temporizador si se reanuda
       } else {
-        _timer.cancel(); // Detiene el temporizador si se pausa
+        _timer?.cancel(); // Detiene el temporizador si se pausa
       }
     });
   }
@@ -70,6 +72,7 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
     setState(() {
       _seconds = widget.duration;
       _isRunning = false; // Establece el temporizador en pausa al reiniciar
+      _timer?.cancel(); // Cancela cualquier temporizador existente
     });
   }
 
@@ -80,7 +83,7 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
 
   @override
   void dispose() {
-    _timer.cancel();
+    _timer?.cancel(); // Cancela el temporizador al desechar el widget
     super.dispose();
   }
 

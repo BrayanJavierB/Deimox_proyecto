@@ -74,19 +74,6 @@ class _HomeScreenState extends State<HomeScreen3> {
         ),
         backgroundColor: Colors.black,
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              FirebaseAuth.instance.signOut().then((value) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignInScreen()),
-                );
-              });
-            },
-          ),
-        ],
         iconTheme: const IconThemeData(
           color:
               Colors.white, // Cambia el color de la flecha de devolver a blanco

@@ -65,8 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
             "Colóquese de pie con los pies a la anchura de los hombros. Coloque su mano izquierda sobre su cadera izquierda y levante su brazo derecho justo por encima de su cabeza.",
         imagePath: "assets/images/pausa6.png"),
     Exercise(
-        name:
-            'Estiramiento de abdominales oblicuos y espalda',
+        name: 'Estiramiento de abdominales oblicuos y espalda',
         description:
             "Colóquese de pie con los pies a la anchura de los hombros con una pared detrás de usted. Coloque las manos en la parte baja de la espalda y doble ligeramente las rodillas.",
         imagePath: "assets/images/pausa7.png"),
@@ -86,19 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         backgroundColor: Colors.black,
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              FirebaseAuth.instance.signOut().then((value) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignInScreen()),
-                );
-              });
-            },
-          ),
-        ],
         iconTheme: const IconThemeData(
           color:
               Colors.white, // Cambia el color de la flecha de devolver a blanco

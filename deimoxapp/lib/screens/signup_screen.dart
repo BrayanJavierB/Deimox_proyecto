@@ -16,8 +16,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _usernameController =
-      TextEditingController(); // Nuevo controlador para el nombre de usuario
+  final TextEditingController _usernameController = TextEditingController();
   bool _passwordHidden = true;
 
   @override
@@ -28,8 +27,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            // Puedes usar Navigator.pop(context) para simplemente volver atrás
-            // O usar otra forma de navegación si es necesario
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const SignInScreen()),
@@ -67,7 +64,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 10),
-              //Image.asset('assets/images/logo.png'),
               Container(
                 height:
                     650, // Ajusta la altura para dejar espacio para el nuevo campo de nombre de usuario
@@ -76,106 +72,105 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   color: const Color.fromARGB(255, 24, 24, 24),
                   borderRadius: BorderRadius.circular(10),
                 ),
-
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    const SizedBox(height: 20),
-                    logoWidget("assets/images/logo2.png"),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const SizedBox(height: 30),
-                    const Text(
-                      'Registrarse',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: 250,
-                      child: TextField(
-                        controller:
-                            _usernameController, // Vincula el controlador de texto al campo de entrada para el nombre de usuario
-                        decoration: const InputDecoration(
-                          labelText:
-                              'Nombre de usuario', // Etiqueta para el campo de nombre de usuario
-                          labelStyle: TextStyle(color: Colors.white),
-                          suffixIcon: Icon(
-                            FontAwesomeIcons.user,
-                            size: 17,
-                            color: Colors.white,
-                          ),
-                          hintStyle: TextStyle(color: Colors.white),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const SizedBox(height: 20),
+                      logoWidget("assets/images/logo2.png"),
+                      const SizedBox(height: 30),
+                      const Text(
+                        'Registrarse',
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
-                        style: const TextStyle(color: Colors.white),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: 250,
-                      child: TextField(
-                        controller: _emailController,
-                        decoration: const InputDecoration(
-                          labelText: 'Correo Electrónico',
-                          labelStyle: TextStyle(color: Colors.white),
-                          suffixIcon: Icon(
-                            FontAwesomeIcons.envelope,
-                            size: 17,
-                            color: Colors.white,
-                          ),
-                          hintStyle: TextStyle(color: Colors.white),
-                        ),
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: 250,
-                      child: TextField(
-                        controller: _passwordController,
-                        decoration: InputDecoration(
-                          labelText: 'Contraseña',
-                          labelStyle: const TextStyle(color: Colors.white),
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _passwordHidden = !_passwordHidden;
-                              });
-                            },
-                            child: Icon(
-                              _passwordHidden
-                                  ? FontAwesomeIcons.eyeSlash
-                                  : FontAwesomeIcons.eye,
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 250,
+                        child: TextField(
+                          controller:
+                              _usernameController, // Vincula el controlador de texto al campo de entrada para el nombre de usuario
+                          decoration: const InputDecoration(
+                            labelText:
+                                'Nombre de usuario', // Etiqueta para el campo de nombre de usuario
+                            labelStyle: TextStyle(color: Colors.white),
+                            suffixIcon: Icon(
+                              FontAwesomeIcons.user,
                               size: 17,
                               color: Colors.white,
                             ),
+                            hintStyle: TextStyle(color: Colors.white),
                           ),
-                          hintStyle: const TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
-                        obscureText: _passwordHidden,
-                        style: const TextStyle(color: Colors.white),
                       ),
-                    ),
-                    const SizedBox(height: 30),
-                    ElevatedButton(
-                      onPressed: () {
-                        _register(); // Llama a la función _register para registrar al usuario
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 25, 165, 69),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 50, vertical: 15),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 250,
+                        child: TextField(
+                          controller: _emailController,
+                          decoration: const InputDecoration(
+                            labelText: 'Correo Electrónico',
+                            labelStyle: TextStyle(color: Colors.white),
+                            suffixIcon: Icon(
+                              FontAwesomeIcons.envelope,
+                              size: 17,
+                              color: Colors.white,
+                            ),
+                            hintStyle: TextStyle(color: Colors.white),
+                          ),
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
-                      child: const Text(
-                        'Registrarse',
-                        style: TextStyle(fontSize: 18.0, color: Colors.white),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 250,
+                        child: TextField(
+                          controller: _passwordController,
+                          decoration: InputDecoration(
+                            labelText: 'Contraseña',
+                            labelStyle: const TextStyle(color: Colors.white),
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _passwordHidden = !_passwordHidden;
+                                });
+                              },
+                              child: Icon(
+                                _passwordHidden
+                                    ? FontAwesomeIcons.eyeSlash
+                                    : FontAwesomeIcons.eye,
+                                size: 17,
+                                color: Colors.white,
+                              ),
+                            ),
+                            hintStyle: const TextStyle(color: Colors.white),
+                          ),
+                          obscureText: _passwordHidden,
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 30),
+                      ElevatedButton(
+                        onPressed: () {
+                          _register(); // Llama a la función _register para registrar al usuario
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 25, 165, 69),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 50, vertical: 15),
+                        ),
+                        child: const Text(
+                          'Registrarse',
+                          style: TextStyle(fontSize: 18.0, color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
