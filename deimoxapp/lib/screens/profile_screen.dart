@@ -407,6 +407,8 @@ class DatosGuardadosScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 20.0),
+                          buildInfoText(
+                              'Correo', user.email ?? 'No disponible'),
                           buildInfoText('Nombre', data['nombre']),
                           buildInfoText('Apellido', data['apellido']),
                           buildInfoText('Edad', data['edad'].toString()),
