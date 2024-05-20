@@ -31,7 +31,10 @@ class Inicio extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Image.asset('assets/images/logotipo.png'),
+                Image.asset('assets/images/logotipo22.png'),
+                const SizedBox(
+                  height: 15,
+                ),
                 Container(
                   width: 350,
                   decoration: BoxDecoration(
