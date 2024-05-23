@@ -14,8 +14,8 @@ class ExerciseTimer extends StatefulWidget {
     required this.onTimerEnd,
     required this.onNext,
     required this.onPrevious,
-    this.autoRestart = false, // Valor por defecto es false
-    this.isRunning = false, // Valor por defecto es false
+    this.autoRestart = false,
+    this.isRunning = false,
     super.key,
   });
 
@@ -26,21 +26,26 @@ class ExerciseTimer extends StatefulWidget {
 class _ExerciseTimerState extends State<ExerciseTimer> {
   late int _seconds;
   late bool _isRunning;
-  Timer? _timer; // Inicializa _timer como nullable
+  Timer? _timer;
+
+  int _selectedMinutes = 0;
+  int _selectedSeconds = 0;
+
+  List<int> _minuteOptions = List.generate(60, (index) => index);
+  List<int> _secondOptions = List.generate(60, (index) => index);
 
   @override
   void initState() {
     super.initState();
     _seconds = widget.duration;
-    _isRunning = widget.isRunning; // Establece el estado inicial
+    _isRunning = widget.isRunning;
     if (_isRunning) {
       _startTimer();
     }
   }
 
   void _startTimer() {
-    _timer
-        ?.cancel(); // Cancela cualquier temporizador existente antes de iniciar uno nuevo
+    _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_seconds == 0) {
         timer.cancel();
@@ -61,9 +66,9 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
     setState(() {
       _isRunning = !_isRunning;
       if (_isRunning) {
-        _startTimer(); // Inicia el temporizador si se reanuda
+        _startTimer();
       } else {
-        _timer?.cancel(); // Detiene el temporizador si se pausa
+        _timer?.cancel();
       }
     });
   }
@@ -71,8 +76,8 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
   void _reset() {
     setState(() {
       _seconds = widget.duration;
-      _isRunning = false; // Establece el temporizador en pausa al reiniciar
-      _timer?.cancel(); // Cancela cualquier temporizador existente
+      _isRunning = false;
+      _timer?.cancel();
     });
   }
 
@@ -81,9 +86,17 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
     _startTimer();
   }
 
+  void _updateTimer() {
+    setState(() {
+      _seconds = _selectedMinutes * 60 + _selectedSeconds;
+      _isRunning = false;
+      _timer?.cancel();
+    });
+  }
+
   @override
   void dispose() {
-    _timer?.cancel(); // Cancela el temporizador al desechar el widget
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -110,6 +123,49 @@ class _ExerciseTimerState extends State<ExerciseTimer> {
             IconButton(
               icon: const Icon(Icons.arrow_forward, size: 40),
               onPressed: widget.onNext,
+            ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DropdownButton<int>(
+              value: _selectedMinutes,
+              items: _minuteOptions
+                  .map((minute) => DropdownMenuItem<int>(
+                        value: minute,
+                        child: Text('$minute min'),
+                      ))
+                  .toList(),
+              onChanged: (value) {
+                if (value != null) {
+                  setState(() {
+                    _selectedMinutes = value;
+                  });
+                }
+              },
+            ),
+            const SizedBox(width: 10),
+            DropdownButton<int>(
+              value: _selectedSeconds,
+              items: _secondOptions
+                  .map((second) => DropdownMenuItem<int>(
+                        value: second,
+                        child: Text('$second sec'),
+                      ))
+                  .toList(),
+              onChanged: (value) {
+                if (value != null) {
+                  setState(() {
+                    _selectedSeconds = value;
+                  });
+                }
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.check, size: 40),
+              onPressed: _updateTimer,
             ),
           ],
         ),
